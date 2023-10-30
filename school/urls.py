@@ -9,7 +9,9 @@ from school.views import KursViewSet, LessonCreateAPIView, LessonListAPIView, Le
 app_name = SchoolConfig.name
 
 router = DefaultRouter()
-router.register( 'Kurs', KursViewSet, basename='kurs')
+router.register(r'kurs', KursViewSet, basename='kurs')
+
+
 urlpatterns =[
     path('lesson/create/',LessonCreateAPIView.as_view(), name='lesson_create'),
     path('lesson/', LessonListAPIView.as_view(), name='lesson_list'),
