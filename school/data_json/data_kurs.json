@@ -1,0 +1,36 @@
+[
+
+  {
+    "model": "Kurs.school",
+    "pk": 1,
+    "fields": {
+      "kurs_name": "Банковская деятельность",
+      "kurs_avatar": "school/1.jpg",
+      "kurs_description":  "description 1",
+      "user": "1"
+
+    }
+  },
+  {
+    "model": "Kurs.school",
+    "pk": 2,
+    "fields": {
+      "kurs_name": "Бухгалтерия и финансы",
+      "kurs_avatar": "school/2.jpg",
+      "kurs_description":  "description 2",
+      "user": "2"
+    }
+  },
+  {
+    "model": "Kurs.school",
+    "pk": 3,
+    "fields": {
+      "kurs_name": "Документоведение",
+      "kurs_avatar": "school/3.jpg",
+      "kurs_description":  "description 3",
+      "user": "3"
+
+  }
+  }
+
+]

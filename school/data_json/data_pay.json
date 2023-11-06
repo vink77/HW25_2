@@ -1,0 +1,39 @@
+[
+
+{
+    "model": "Pay.school",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "datapay": "2023-10-25",
+      "kurspay":  2,
+      "lessonpay": 1,
+      "payment": 20000,
+      "paymentmethod": "наличные"
+    }
+  },
+{
+    "model": "Pay.school",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "datapay": "2022-09-25",
+      "kurspay":  1,
+      "lessonpay": 2,
+      "payment": 10000,
+      "paymentmethod": "перевод на счет"
+    }
+  },
+{
+    "model": "Pay.school",
+    "pk": 3,
+    "fields": {
+      "user": 2,
+      "datapay": "2022-08-25 00:00:00",
+      "kurspay":  1,
+      "lessonpay": 3,
+      "payment": 5000,
+      "paymentmethod": "наличные"
+    }
+  }
+]

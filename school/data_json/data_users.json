@@ -1,0 +1,87 @@
+[
+  {
+    "model": "User.users",
+    "pk": 1,
+    "fields": {
+      "email": "test1@skypro.ru",
+      "phone": "956-659",
+      "city": "Москва",
+      "avatar":  "users/1.jpg",
+      "is_staff": "True",
+      "is_superuser": "True"
+    }
+  },
+  {
+    "model": "User.users",
+    "pk": 2,
+    "fields": {
+      "email": "test2@skypro.ru",
+      "phone": "956-652",
+      "city": "Казань",
+      "avatar":  "users/2.jpg",
+      "is_staff": "True",
+      "is_superuser": "False"
+    }
+  },
+  {
+    "model": "User.users",
+    "pk": 3,
+    "fields": {
+      "email": "test3@skypro.ru",
+      "phone": "956-653",
+      "city": "Кемерово",
+      "avatar":  "users/3.jpg",
+      "is_staff": "True",
+      "is_superuser": "False"
+
+  }
+  },
+  {
+    "model": "User.users",
+    "pk": 4,
+    "fields": {
+      "email": "test4@skypro.ru",
+      "phone": "956-654",
+      "city": "Иваново",
+      "avatar":  "users/4.jpg",
+      "is_staff": "True",
+      "is_superuser": "False"
+  }
+  },
+  {
+    "model": "User.users",
+    "pk": 5,
+    "fields": {
+      "email": "test5@skypro.ru",
+      "phone": "956-655",
+      "city": "Владивосток",
+      "avatar":  "users/5.jpg",
+      "is_staff": "True",
+      "is_superuser": "False"
+    }
+  },
+  {
+    "model": "User.users",
+    "pk": 6,
+    "fields": {
+      "email": "test6@skypro.ru",
+      "phone": "956-656",
+      "city": "Берлин",
+      "avatar":  "users/6.jpg",
+      "is_staff": "True",
+      "is_superuser": "False"
+    }
+  },
+  {
+    "model": "User.users",
+    "pk": 7,
+    "fields": {
+      "email": "test7@skypro.ru",
+      "phone": "956-657",
+      "city": "Вашингтон",
+      "avatar":  "users/7.jpg",
+      "is_staff": "True",
+      "is_superuser": "False"
+    }
+  }
+]

@@ -1,0 +1,77 @@
+[
+
+  {
+    "model": "Lesson.school",
+    "pk": 1,
+    "fields": {
+      "lesson_name": "Анализ деятельности коммерческого банка",
+      "lesson_avatar": "school/4.jpg",
+      "lesson_description":  "description 1",
+      "video_url": "https://video.ru/lesson1",
+      "kurs": "1",
+      "user": "1"
+
+  }
+  },
+  {
+    "model": "Lesson.school",
+    "pk": 2,
+    "fields": {
+      "lesson_name": "Банковские системы",
+      "lesson_avatar": "school/5.jpg",
+      "lesson_description":  "description 2",
+      "video_url": "https://video.ru/lesson2",
+      "kurs": "1",
+      "user": "1"
+    }
+  },
+  {
+    "model": "Lesson.school",
+    "pk": 3,
+    "fields": {
+      "lesson_name": "Анализ финансово-хозяйственной деятельности",
+      "lesson_avatar": "school/6.jpg",
+      "lesson_description":  "description 3",
+      "video_url": "https://video.ru/lesson3",
+      "kurs": "2",
+      "user": "1"
+    }
+  },
+  {
+    "model": "Lesson.school",
+    "pk": 4,
+    "fields": {
+      "lesson_name": "Бухгалтерские информационные системы",
+      "lesson_avatar": "school/7.jpg",
+      "lesson_description":  "description 4",
+      "video_url": "https://video.ru/lesson4",
+      "kurs": "2",
+      "user": "1"
+    }
+  },
+{
+    "model": "Lesson.school",
+    "pk": 5,
+    "fields": {
+      "lesson_name": "Документы и делопроизводство (НПО)",
+      "lesson_avatar": "school/8.jpg",
+      "lesson_description":  "description 5",
+      "video_url": "https://video.ru/lesson5",
+      "kurs": "3",
+      "user": "1"
+    }
+  },
+{
+    "model": "Lesson.school",
+    "pk": 6,
+    "fields": {
+      "lesson_name": "Документационное обеспечение муниципального управления",
+      "lesson_avatar": "school/9.jpg",
+      "lesson_description":  "description 6",
+      "video_url": "https://video.ru/lesson6",
+      "kurs": "3",
+      "user": "1"
+    }
+  }
+
+]

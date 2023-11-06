@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets, generics
-
-from school.models import Kurs, Lesson
-from school.serializers import KursSerializer, LessonSerializer
+from django_filters.rest_framework import OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
+from school.models import Kurs, Lesson, Pay
+from school.serializers import KursSerializer, LessonSerializer, PaySerializer
 
 
 # Create your views here.
@@ -31,3 +32,13 @@ class LessonUpdateAPIView(generics.UpdateAPIView):
 
 class LessonDestroyAPIView(generics.DestroyAPIView):
     queryset = Lesson.objects.all()
+
+
+
+
+class PayListAPIView(generics.ListAPIView):
+    queryset = Pay.objects.all()
+    serializer_class = PaySerializer
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    filterset_fields = ('kurspay', 'lessonpay', 'paymentmethod',)
+    ordering_fields = ('datapay',)
