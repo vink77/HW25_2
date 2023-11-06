@@ -3,7 +3,7 @@ from rest_framework import viewsets, generics
 from django_filters.rest_framework import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from school.models import Kurs, Lesson, Pay
-from school.serializers import KursSerializer, LessonSerializer, PaySerializer
+from school.serializers import KursSerializer, LessonSerializer, PaySerializer, LessonListSerializer
 
 
 # Create your views here.
@@ -19,7 +19,7 @@ class LessonCreateAPIView(generics.CreateAPIView):
     serializer_class = LessonSerializer
 
 class LessonListAPIView(generics.ListAPIView):
-    serializer_class = LessonSerializer
+    serializer_class = LessonListSerializer
     queryset = Lesson.objects.all()
 
 class LessonRetrieveAPIView(generics.RetrieveAPIView):
