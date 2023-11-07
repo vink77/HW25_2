@@ -22,20 +22,17 @@ class KursSerializer(serializers.ModelSerializer):
 
 
 class LessonSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Lesson
-        fields ='__all__'
-
-
+     class Meta:
+         model = Lesson
+         fields ='__all__'
 
 
 class LessonListSerializer(serializers.ModelSerializer):
-    kurs = SlugRelatedField(slug_fields="kurs_name", queryset=Kurs.objects.all())
-    user = SlugRelatedField(slug_fields="email", queryset=User.objects.all())
+    kurs = SlugRelatedField(slug_field="kurs_name", queryset=Kurs.objects.all())
+   # user = SlugRelatedField(slug_field="email", queryset=User.objects.all())
     class Meta:
         model = Lesson
-        fields =('kurs','user')
+        fields =("kurs_name","kurs")
 
 class PaySerializer(serializers.ModelSerializer):
 
