@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+м
 NULLABLE = {"null": True, "blank": True}
 # Create your models here.
 
@@ -16,7 +18,7 @@ class User(AbstractUser):
     phone = models.CharField(max_length=35, verbose_name='телефон', **NULLABLE)
     city = models.CharField(max_length=100, verbose_name='город', **NULLABLE)
     avatar = models.ImageField(upload_to='users/', verbose_name='аватар', **NULLABLE)
-    role = models.CharField(max_length=20, choices=UserRoles.choices, default=UserRoles.MEMBER)
+    role = models.CharField(max_length=9, choices=UserRoles.choices, default=UserRoles.MEMBER)
 
 
 
