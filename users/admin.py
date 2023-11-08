@@ -9,5 +9,5 @@ from users.models import User
 
 @admin.register(User)
 class UsersAdmin(admin.ModelAdmin):
-    list_display = ('email', 'phone', 'city', 'password', 'avatar',)
+    list_display = ('email', 'phone', 'city', 'password', 'avatar','role')
     list_filter = ('email', 'city',)

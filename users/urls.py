@@ -1,22 +1,17 @@
-from django.conf.urls.static import static
 from django.urls import path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from django.contrib.auth.views import LoginView, LogoutView
+import users
 
-from config import settings
-from users.views import ProfileView, RegisterUser, PasswordRecoveryView
-from users.apps import UsersConfig
-
-
-app_name = 'user'
+app_name = 'usersConfig.name'
 
 
 urlpatterns = [
-    path('', LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
-    path('register/', RegisterUser.as_view(), name='register'),
-    path('profile/', ProfileView.as_view(), name='profile'),
-    #path('login/', LoginView.as_view(), name='login'),
-    path('password_recovery/', PasswordRecoveryView.as_view(), name='password_recovery'),
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+]
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#{
+#    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5OTUzNDYzNCwiaWF0IjoxNjk5NDQ4MjM0LCJqdGkiOiJiZWIyYmE5MjBlMGU0ZGY1ODFhZWM3YjM5ODYwOThlOCIsInVzZXJfaWQiOjh9.trbjNWM432d5Xw-T8oV5eJMKzP_Ac2ImRvO83RZmDkw",
+#    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk5NDQ4NTM0LCJpYXQiOjE2OTk0NDgyMzQsImp0aSI6IjE1ZmVhMmMwYWU1YTQ2Njg4OGI4YTNhOGY3MTkwNjhlIiwidXNlcl9pZCI6OH0.78RTU-B2IOsYfjUW-HIc-ZpLNf1VmO6ZSiXZKrv0k0I"
+#}
