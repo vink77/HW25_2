@@ -24,7 +24,7 @@ class Lesson(models.Model):
     lesson_name = models.CharField(max_length=100, verbose_name='название урока')
     lesson_avatar = models.ImageField(upload_to='school/', verbose_name='картинка урока', **NULLABLE)
     lesson_description = models.TextField(**NULLABLE, verbose_name='описание урока')
-    video_url = models.URLField( **NULLABLE, verbose_name='ссылка на видео')
+    video_url = models.URLField(verbose_name='ссылка на видео', **NULLABLE)
     kurs = models.ForeignKey(Kurs, related_name='lesson', on_delete=models.SET_NULL, **NULLABLE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, **NULLABLE)
 
@@ -72,3 +72,5 @@ class Subscription(models.Model):
 
     def __str__(self):
         return f'{self.user} подписан на курс {self.course}'
+
+
