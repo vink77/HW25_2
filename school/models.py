@@ -24,7 +24,7 @@ class Lesson(models.Model):
     lesson_name = models.CharField(max_length=100, verbose_name='название урока')
     lesson_avatar = models.ImageField(upload_to='school/', verbose_name='картинка урока', **NULLABLE)
     lesson_description = models.TextField(**NULLABLE, verbose_name='описание урока')
-    video_url = models.URLField(verbose_name='ссылка на видео', **NULLABLE)
+    video_url = models.URLField( **NULLABLE, verbose_name='ссылка на видео')
     kurs = models.ForeignKey(Kurs, related_name='lesson', on_delete=models.SET_NULL, **NULLABLE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, **NULLABLE)
 
@@ -63,7 +63,7 @@ class Pay(models.Model):
 
 class Subscription(models.Model):
     course = models.ForeignKey(Kurs, on_delete=models.CASCADE, verbose_name='курс')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='subscriptions', verbose_name='пользователь' **NULLABLE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='subscriptions', verbose_name='пользователь', **NULLABLE)
     is_active = models.BooleanField(default=True, verbose_name='подписан')
 
     class Meta:

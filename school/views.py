@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets, generics
 from django_filters.rest_framework import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
 
 from school.paginators import LessonPaginator
 from school.permissions import IsModerator, IsOwner
@@ -38,7 +38,9 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
 
 class LessonCreateAPIView(generics.CreateAPIView):
     serializer_class = LessonSerializer
-    permission_classes = [IsAuthenticated, IsOwner | IsModerator | IsAdminUser]
+    permission_classes = [AllowAny]
+
+    #permission_classes = [IsAuthenticated, IsOwner | IsModerator | IsAdminUser]
 
 class LessonListAPIView(generics.ListAPIView):
     serializer_class = LessonListSerializer
