@@ -3,16 +3,20 @@ from rest_framework import viewsets, generics
 from django_filters.rest_framework import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
+
+from school.paginators import LessonPaginator
 from school.permissions import IsModerator, IsOwner
 
-from school.models import Kurs, Lesson, Pay
-from school.serializers import KursSerializer, LessonSerializer, PaySerializer, LessonListSerializer
+from school.models import Kurs, Lesson, Pay, Subscription
+from school.serializers import KursSerializer, LessonSerializer, PaySerializer, LessonListSerializer, \
+    SubscriptionSerializer
 
 
 # Create your views here.
 class KursViewSet(viewsets.ModelViewSet):
     serializer_class = KursSerializer
     queryset = Kurs.objects.all()
+    pagination_class = LessonPaginator
 
     def get_permissions(self):
         action_permissions = {
@@ -26,7 +30,10 @@ class KursViewSet(viewsets.ModelViewSet):
 
         return [permission() for permission in action_permissions.get(self.action, default_permissions)]
 
-
+class SubscriptionViewSet(viewsets.ModelViewSet):
+    serializer_class = SubscriptionSerializer
+    queryset = Subscription.objects.all()
+    permission_classes = [IsAuthenticated, IsOwner | IsModerator | IsAdminUser]
 
 
 class LessonCreateAPIView(generics.CreateAPIView):
@@ -37,6 +44,15 @@ class LessonListAPIView(generics.ListAPIView):
     serializer_class = LessonListSerializer
     queryset = Lesson.objects.all()
     permission_classes = [IsAuthenticated]
+    pagination_class = LessonPaginator
+
+    def get(self, request):
+        ''' Возврат ответа со страницей данных и информацией о пагинации.'''
+        queryset = Lesson.objects.all()
+        paginated_queryset = self.paginate_queryset(queryset)
+        serializer = LessonListSerializer(paginated_queryset, many=True)
+        return self.get_paginated_response(serializer.data)
+
 
 class LessonRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = LessonSerializer

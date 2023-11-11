@@ -4,12 +4,14 @@ from school.apps import SchoolConfig
 from rest_framework.routers import DefaultRouter
 
 from school.views import KursViewSet, LessonCreateAPIView, LessonListAPIView, LessonRetrieveAPIView, \
-    LessonUpdateAPIView, LessonDestroyAPIView
+    LessonUpdateAPIView, LessonDestroyAPIView, SubscriptionViewSet
 
 app_name = SchoolConfig.name
 
 router = DefaultRouter()
 router.register(r'kurs', KursViewSet, basename='kurs')
+router.register(r'subscription', SubscriptionViewSet, basename='subscription')
+
 
 
 urlpatterns =[

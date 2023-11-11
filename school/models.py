@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 from users.models import NULLABLE, User
@@ -58,3 +59,16 @@ class Pay(models.Model):
     class Meta:
         verbose_name = 'платеж'
         verbose_name_plural = 'платежи'
+
+
+class Subscription(models.Model):
+    course = models.ForeignKey(Kurs, on_delete=models.CASCADE, verbose_name='курс')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='subscriptions', verbose_name='пользователь' **NULLABLE)
+    is_active = models.BooleanField(default=True, verbose_name='подписан')
+
+    class Meta:
+        verbose_name = 'подписка'
+        verbose_name_plural = 'подписки'
+
+    def __str__(self):
+        return f'{self.user} подписан на курс {self.course}'
