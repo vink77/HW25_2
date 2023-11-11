@@ -34,7 +34,10 @@ class LessonListSerializer(serializers.ModelSerializer):
    # user = SlugRelatedField(slug_field="email", queryset=User.objects.all())
     class Meta:
         model = Lesson
-        fields =("kurs_name","kurs")
+        #fields =("kurs_name","kurs")
+
+        fields ='__all__'
+
 
 class PaySerializer(serializers.ModelSerializer):
 

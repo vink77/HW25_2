@@ -1,8 +1,5 @@
-import os
-
 from django.core.management.base import BaseCommand
 import json
-from config import settings
 from school.models import Kurs, Lesson, Pay
 from users.models import User
 class Command(BaseCommand):
@@ -13,7 +10,6 @@ class Command(BaseCommand):
         Kurs.objects.all().delete()
         Lesson.objects.all().delete()
         Pay.objects.all().delete()
-
 
 
         with open('school/data_json/data_users.json', 'r', encoding='UTF-8') as us:
@@ -28,7 +24,6 @@ class Command(BaseCommand):
                     is_staff=item['fields']['is_staff'],
                     is_superuser=item['fields']['is_superuser'],
                 )
-
 
 
         with open('school/data_json/data_kurs.json', 'r', encoding='UTF-8') as kr:
@@ -74,28 +69,3 @@ class Command(BaseCommand):
                         payment=item['fields']['payment'],
                         paymentmethod=item['fields']['paymentmethod']
                     )
-
-
-
-
-
-
-#        user = User.objects.create(
-#            email=settings.EMAIL_HOST_USER,
-#            first_name='Admin',
-#            last_name='SkyPro',
-#            is_staff=True,
-#            is_superuser=True,
-#        )
-#        user.set_password(os.getenv('DATABASE_PASSWORD'))
-#        user.save()
-
-
-#        category_to_fill = []
-#        for category in categories:
-#            category_to_fill.append(Category(**category))
-#
-#
-#        # Пакетное заполнение БД
-#
-#        Category.objects.bulk_create(category_to_fill)

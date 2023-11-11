@@ -29,7 +29,7 @@
     "pk": 3,
     "fields": {
       "user": 2,
-      "datapay": "2022-08-25 00:00:00",
+      "datapay": "2022-08-25",
       "kurspay":  1,
       "lessonpay": 3,
       "payment": 5000,
