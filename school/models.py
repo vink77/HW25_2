@@ -47,7 +47,7 @@ class Pay(models.Model):
     )
 
     user = models.ForeignKey(User,related_name='user', on_delete=models.SET_NULL, **NULLABLE)
-    datapay = models.DateTimeField(verbose_name='дата оплаты', **NULLABLE)
+    datapay = models.DateField(verbose_name='дата оплаты', **NULLABLE)
     kurspay = models.ForeignKey(Kurs,related_name='kurspay', on_delete=models.SET_NULL, verbose_name='оплата курса', **NULLABLE)
     lessonpay = models.ForeignKey(Lesson,related_name='lessonpay', on_delete=models.SET_NULL,verbose_name='оплата урока', **NULLABLE)
     payment = models.FloatField(verbose_name='сумма оплаты', **NULLABLE)

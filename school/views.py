@@ -33,7 +33,8 @@ class KursViewSet(viewsets.ModelViewSet):
 class SubscriptionViewSet(viewsets.ModelViewSet):
     serializer_class = SubscriptionSerializer
     queryset = Subscription.objects.all()
-    permission_classes = [IsAuthenticated, IsOwner | IsModerator | IsAdminUser]
+    #permission_classes = [IsAuthenticated, IsOwner | IsModerator | IsAdminUser]
+    permission_classes = [AllowAny]
 
 
 class LessonCreateAPIView(generics.CreateAPIView):
@@ -45,36 +46,38 @@ class LessonCreateAPIView(generics.CreateAPIView):
 class LessonListAPIView(generics.ListAPIView):
     serializer_class = LessonListSerializer
     queryset = Lesson.objects.all()
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
+
+    #permission_classes = [IsAuthenticated]
     pagination_class = LessonPaginator
 
-    def get(self, request):
-        ''' Возврат ответа со страницей данных и информацией о пагинации.'''
-        queryset = Lesson.objects.all()
-        paginated_queryset = self.paginate_queryset(queryset)
-        serializer = LessonListSerializer(paginated_queryset, many=True)
-        return self.get_paginated_response(serializer.data)
+#    def get(self, request):
+#        ''' Возврат ответа со страницей данных и информацией о пагинации.'''
+#        queryset = Lesson.objects.all()
+#        paginated_queryset = self.paginate_queryset(queryset)
+#        serializer = LessonListSerializer(paginated_queryset, many=True)
+#        return self.get_paginated_response(serializer.data)
 
 
 class LessonRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    #permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [AllowAny]
+
 
 
 class LessonUpdateAPIView(generics.UpdateAPIView):
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
-    permission_classes = [IsAuthenticated, IsOwner | IsModerator | IsAdminUser]
+    permission_classes = [AllowAny]
+#    permission_classes = [IsAuthenticated, IsOwner | IsModerator | IsAdminUser]
 
 
 class LessonDestroyAPIView(generics.DestroyAPIView):
     queryset = Lesson.objects.all()
-    permission_classes = [IsAuthenticated, IsOwner | IsAdminUser]
-
-
-
-
+    #permission_classes = [IsAuthenticated, IsOwner | IsAdminUser]
+    permission_classes = [AllowAny]
 
 class PayListAPIView(generics.ListAPIView):
     queryset = Pay.objects.all()
